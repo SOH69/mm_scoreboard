@@ -54,6 +54,24 @@
 					action: "setPlayerVisible",
 					data: {
 						show: true,
+						config: {
+							player: {
+								header: 'license',
+								list: [
+									'name',
+									'steam3',
+								]
+							},
+							recent: {
+								header: 'steam2',
+								list: [
+									'name',
+									'steam3',
+									'license',
+									'discord',
+								]
+							}
+						},
 						data : {
 							players: playerlist,
 							recent: recent,

@@ -2,7 +2,7 @@
 	import { ReceiveNUI } from '../utils/ReceiveNUI'
 	import { SendNUI } from '../utils/SendNUI'
 	import { onMount } from 'svelte'
-	import { BROWSER_MODE, VISIBILITY, PLAYERS, ROBBERY, RobberyVisible, PlayerVisible, COOLDOWN } from '../store/stores'
+	import { BROWSER_MODE, VISIBILITY, PLAYERS, ROBBERY, RobberyVisible, PlayerVisible, COOLDOWN, IDENTIFIER } from '../store/stores'
 	import BackdropFix from './BackdropFix.svelte'
 
 	let isVisible: boolean
@@ -26,8 +26,10 @@
 		VISIBILITY.set(data.show)
 		PlayerVisible.set(data.show)
 		RobberyVisible.set(false)
-		if (data.show)
+		if (data.show) {
+			IDENTIFIER.set(data.config)
 			PLAYERS.set(data.data)
+		}
 	})
 
 	ReceiveNUI<any>('setRobberyVisible', (data: any) => {
