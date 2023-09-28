@@ -35,3 +35,9 @@ end)
 Next Step you need to add the trigger in the robbery script at `server side` at the corect position need coding knowledge here
 [NOTE] No support will be provided if robbery script is encrypted
 [NOTE] Toggle Key for List can be modified in `public/client.lua`
+
+## Discord
+https://discord.gg/Au4uAT3frK
+
+## Tebex Store
+https://master-mind.tebex.io/
