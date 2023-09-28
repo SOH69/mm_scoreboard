@@ -7,7 +7,7 @@ lib.addCommand('combat', {
 end)
 
 lib.addCommand('cooldown', {
-    help = 'Get all nearby combat player list',
+    help = 'Set Priority Cooldown',
     params = {
         {
             name = 'time',
@@ -15,9 +15,20 @@ lib.addCommand('cooldown', {
             help = 'Cooldown Timer',
         }
     },
-    restricted = 'group.admin'
 }, function(source, args)
-    TriggerEvent("mm_robbery:server:sync", args.time or 30)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local PlayerData = Player.PlayerData
+    if PlayerData.job.name == 'police' then
+        TriggerEvent("mm_robbery:server:sync", args.time or 30)
+    else
+        local ndata = {
+			title = 'Failed',
+    		description = 'Not Verified',
+    		type = 'error'
+		}
+        TriggerClientEvent('ox_lib:notify', src, ndata)
+    end
 end)
 
 RegisterNetEvent("mm_scoreboard:server:banktrigger", function(status)
