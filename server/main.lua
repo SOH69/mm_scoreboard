@@ -38,7 +38,9 @@ AddEventHandler("playerDropped", function(reason)
         name = connectedPlayers[plyid].name or 'N/A',
         steam2 = connectedPlayers[plyid].steam2 or 'N/A',
         steam3 = connectedPlayers[plyid].steam3 or 'N/A',
-        license = connectedPlayers[plyid].license or 'N/A'
+        license = connectedPlayers[plyid].license or 'N/A',
+        discord = connectedPlayers[plyid].discord or 'N/A',
+        color = connectedPlayers[plyid].color or {255, 255, 255}
     }
     connectedPlayers[plyid] = nil
 
@@ -56,7 +58,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
     local steamIdentifier = GetIdentifier(src, 'steam') or 'N/A'
     local licenseIdentifier = GetIdentifier(src, 'license') or 'N/A'
     local disocrdIdentifier = GetIdentifier(src, 'discord') or 'N/A'
-    local color = 'rgb(255, 255, 255)'
+    local color = {255, 255, 255}
     local icon = nil
 
     local steam2 = HexIdToSteamId(steamIdentifier)
