@@ -77,6 +77,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
             local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, k)
             if hasRole  then
                 color = v
+                break
             end
         end
     end
@@ -86,6 +87,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
             local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, k)
             if hasRole  then
                 icon = v
+                break
             end
         end
     end
