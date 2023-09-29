@@ -1,7 +1,13 @@
 A scoreboard script to maintain and see other players incity! It has many features packed in one script which every RP server wants and it provides a whole new UI look, enriching user experience.
 
+
+## PREVIEW:
+https://imgur.com/GFV70Q0
+https://imgur.com/cDhkRks
+https://imgur.com/ze8vy1c
+
 # DEPENDENCIES :  
-1. [OX_Libs](https://github.com/overextended/ox_lib)
+1. [ox_libs](https://github.com/overextended/ox_lib)
 2. Onesync
 3. QBCore(for emergency service list)
 
@@ -20,8 +26,6 @@ A scoreboard script to maintain and see other players incity! It has many featur
 2. Cooldown System
 3. Service Job Active Members list
 4. Completely Cuztomizable Robbery Status List
-
-
 
 # GUIDE:
 1. To Use custom color to priority holder you need to provide server guild id and bot token because it uses discord integration to check for prioty holder roles
