@@ -2,9 +2,9 @@ A scoreboard script to maintain and see other players incity! It has many featur
 
 
 ## PREVIEW:
-![image](https://imgur.com/GFV70Q0)
-![image](https://imgur.com/cDhkRks)
-![image](https://imgur.com/ze8vy1c)
+![image](https://imgur.com/GFV70Q0.png)
+![image](https://imgur.com/cDhkRks.png)
+![image](https://imgur.com/ze8vy1c.png)
 
 # DEPENDENCIES :  
 1. [ox_libs](https://github.com/overextended/ox_lib)
