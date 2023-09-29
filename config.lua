@@ -7,55 +7,79 @@ Config.EnablePriorityColor = true  -- Toggle key to enable or disable custom col
 Config.PriorityColor = {
     -- ['835412914332237836'] = {255, 0, 0},  -- [role] = 'color code(rgb)'
 }
-Config.ViewIdDistance = 10.0
+Config.EnableIcon = true  -- Toggle key to enable or disable custom icon for discord roles
+Config.Icons = {
+    -- ['835412914332237836'] = '',  -- [role] = 'font awesome icon ex:("fa-solid fa-person-military-rifle")'
+}
+
+Config.ViewIdDistance = 10.0  -- viewing distance for player overhead id
 
 Config.MouseKey = 238  -- mouse key value to interact with list(prefer not to change)
 Config.ColorOnVoiceToggle = true  -- Toggle key to enable or disable color on voice active
 Config.ColorCodeOnVoice = {0, 0, 255}  -- Voice Active color code value (r, g, b)
 
--- ## If you don't want to show any row add 'empty' ex: Config.RecentListContainer4 = 'empty' ## This will hide the 4th row of player info in recent list
-
 
 Config.Cooldown = 0 -- do not change
+
+
+Config.PlayerIdentifier = { -- configure what you want to show in playerlist [name(steam name), steam2(steam 2 dec), steam3(steam 3 hex), license(r* license), discord(discord user id)]
+    header = 'steam2', -- name/steam2/steam3/license/discord (header is the main identifier)
+    list = { -- name/steam2/steam3/license/discord (list is the sublist of identifiers)
+        'name',
+        'steam3',
+        'license',
+        'discord',
+    }
+}
+
+Config.RecentIdentifier = { -- configure what you want to show in recent dc list [name(steam name), steam2(steam 2 dec), steam3(steam 3 hex), license(r* license), discord(discord user id)]
+    header = 'steam2', -- name/steam2/steam3/license/discord (header is the main identifier)
+    list = { -- name/steam2/steam3/license/discord (list is the sublist of identifiers)
+        'name',
+        'steam3',
+        'license',
+        'discord',
+    }
+}
 
 Config.Services = {  -- Service Job Holder list
     {
         name = 'Police',
         color = '#387BFD',
-        amount = 0,
+        amount = 0, -- do not touch
         job = 'police'
     },
     {
         name = 'Ambulance',
         color = '#FF2020',
-        amount = 0,
+        amount = 0, -- do not touch
         job = 'ambulance'
     },
     {
         name = 'Mechanic',
         color = '#EEEEEE',
-        amount = 0,
+        amount = 0, -- do not touch
         job = 'mechanic'
     }
 }
 Config.Robberies = {  -- Robbery List
     {
         name = 'Bank Robbery',
-        status = false,
-        job = 'police',
-        jobamount  = 1
+        status = false, -- do not touch
+        job = 'police', -- job holder name
+        jobamount  = 1 -- required police to start heist
 
     },
     {
         name = 'Jewellery Robbery',
-        status = false,
-        job = 'police',
-        jobamount  = 5
+        status = false, -- do not touch
+        job = 'police', -- job holder name
+        jobamount  = 5 -- required police to start heist
     },
     {
         name = 'Pacific Bank Robbery',
-        status = false,
-        job = 'police',
-        jobamount  = 6
+        status = false, -- do not touch
+        job = 'police', -- job holder name
+        jobamount  = 6 -- required police to start heist
     }
 }

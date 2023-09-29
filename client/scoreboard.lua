@@ -79,6 +79,12 @@ AddEventHandler('onResourceStart', function(resourceName)
     TriggerServerEvent("mm_scoreboard:server:AddPlayer")
 end)
 
+AddEventHandler('onResourceStop', function(resourceName)
+    if GetCurrentResourceName() ~= resourceName then return end
+
+    EndAnim()
+end)
+
 RegisterNetEvent("mm_scoreboard:client:UpdateConnect", function(data)
     connectedPlayers = {}
     for _, v in pairs(data) do
@@ -143,6 +149,10 @@ RegisterNetEvent('mm_scoreboard:client:toggle', function()
             action = "setPlayerVisible",
             data = {
                 show = true,
+                config = {
+                    player = Config.PlayerIdentifier,
+                    recent = Config.RecentIdentifier,
+                },
                 data = {
                     players = connectedPlayers,
                     recent = recentPlayers,

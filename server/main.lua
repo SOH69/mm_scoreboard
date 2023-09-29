@@ -38,8 +38,7 @@ AddEventHandler("playerDropped", function(reason)
         name = connectedPlayers[plyid].name or 'N/A',
         steam2 = connectedPlayers[plyid].steam2 or 'N/A',
         steam3 = connectedPlayers[plyid].steam3 or 'N/A',
-        license = connectedPlayers[plyid].license or 'N/A',
-        empty = ''
+        license = connectedPlayers[plyid].license or 'N/A'
     }
     connectedPlayers[plyid] = nil
 
@@ -58,6 +57,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
     local licenseIdentifier = GetIdentifier(src, 'license') or 'N/A'
     local disocrdIdentifier = GetIdentifier(src, 'discord') or 'N/A'
     local color = 'rgb(255, 255, 255)'
+    local icon = nil
 
     local steam2 = HexIdToSteamId(steamIdentifier)
     local ply = GetPlayerName(src)
@@ -79,6 +79,15 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
         end
     end
 
+    if Config.EnableIcon then
+        for k, v in pairs(Config.Icons) do
+            local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, k)
+            if hasRole  then
+                icon = v
+            end
+        end
+    end
+
     local plyid = src
     connectedPlayers[plyid] = {
         id = plyid or 0,
@@ -88,7 +97,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
         license = license,
         discord = discord or 'N/A',
         color = color,
-        empty = ''
+        icon = icon
     }
 
     TriggerClientEvent("mm_scoreboard:client:UpdateConnect", -1, connectedPlayers)

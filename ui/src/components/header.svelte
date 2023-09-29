@@ -5,7 +5,7 @@
 </script>
 
 <div style = 'background: url({img})' class = "w-[20vw] h-[10vh] rounded-[8px]  flex flex-col justify-between">
-    <div class = "flex justify-center items-center font text-[6vh] h-[8vh] letter-spacing-[1px] bg-lg grow mt-3 mr-2">{title}</div>
+    <div class = "flex justify-center items-center font text-[5vh] h-[8vh] letter-spacing-[1px] bg-lg grow mt-3 mr-2">{title}</div>
     <div class = "h-[2vh] w-full bg-black rounded-b-[8px] flex items-center px-[1vw] justify-between">
         <div class = "bg-lg-s text-[1.5vh] font font-bold">{$RobberyVisible? 'PRIORITY':'TOTAL PLAYERS ONLINE'}</div>
         <div class = "bg-lg-s text-[1.5vh] font font-bold">{$RobberyVisible? $COOLDOWN+'mins':$PLAYERS.players.length}</div>

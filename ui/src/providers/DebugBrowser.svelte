@@ -13,7 +13,8 @@
 			steam3: `11000014250ee${i}`,
 			discord: `${i}26987939540893705`,
 			license: `ef42b10d5f159589df750d4eecaeb55${i}925687e6`,
-			color: i%5==0? [255, 69, 58]:[255, 255, 255]
+			color: i%5==0? [255, 69, 58]:[255, 255, 255],
+			icon: i%10==0? 'fa-solid fa-person-military-rifle':undefined
 		};
 		playerlist.push(player);
 	}
@@ -60,10 +61,12 @@
 								list: [
 									'name',
 									'steam3',
+									'license',
+									'discord',
 								]
 							},
 							recent: {
-								header: 'steam2',
+								header: 'steam3',
 								list: [
 									'name',
 									'steam3',
