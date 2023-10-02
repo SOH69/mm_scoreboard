@@ -11,6 +11,7 @@
 		steam3: 'steam3',
 		discord: 'discord',
 		license: 'license',
+        fivem: 'fivem',
         color: [255, 255, 255],
         icon: undefined
 	};
@@ -22,6 +23,7 @@
 		steam3: 'COMMUNITY ID',
 		discord: 'DISCORD',
 		license: 'R* LICENSE',
+        fivem: 'FIVEM'
     }
 
     let selected = false

@@ -40,6 +40,7 @@ AddEventHandler("playerDropped", function(reason)
         steam3 = connectedPlayers[plyid].steam3 or 'N/A',
         license = connectedPlayers[plyid].license or 'N/A',
         discord = connectedPlayers[plyid].discord or 'N/A',
+        fivem = connectedPlayers[plyid].fivem or 'N/A',
         color = connectedPlayers[plyid].color or {255, 255, 255}
     }
     connectedPlayers[plyid] = nil
@@ -58,6 +59,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
     local steamIdentifier = GetIdentifier(src, 'steam') or 'N/A'
     local licenseIdentifier = GetIdentifier(src, 'license') or 'N/A'
     local disocrdIdentifier = GetIdentifier(src, 'discord') or 'N/A'
+    local fivemIdentifier = GetIdentifier(src, 'fivem') or 'N/A'
     local color = {255, 255, 255}
     local icon = nil
 
@@ -65,7 +67,9 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
     local ply = GetPlayerName(src)
     local steam3 = steamIdentifier:gsub("steam:", "")
     local license = 'N/A'
+    local fivem = fivemIdentifier:gsub("fivem:", "")
     local discord = disocrdIdentifier:gsub("discord:", "")
+
     if string.find(licenseIdentifier, "license:") then
         license = licenseIdentifier:gsub("license:", "")
     elseif string.find(licenseIdentifier, "license2:") then
@@ -100,6 +104,7 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
         steam3 = steam3 or 'N/A',
         license = license,
         discord = discord or 'N/A',
+        fivem = fivem or 'N/A',
         color = color,
         icon = icon
     }
