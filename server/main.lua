@@ -117,17 +117,22 @@ RegisterNetEvent('mm_robbery:server:sync', function(time)
 end)
 
 RegisterNetEvent('mm_robbery:server:getservicedata', function()
-    for k, v in pairs(Config.Services) do
-        local amount = 0
-        local players = QBCore.Functions.GetQBPlayers()
-        for _, ply in pairs(players) do
-            if ply and ply.PlayerData.job.name == v.job and ply.PlayerData.job.onduty then
-                amount += 1
-            end
+    local jobamount = {}
+    local players = QBCore.Functions.GetQBPlayers()
+    for _, ply in pairs(players) do
+        if ply and ply.PlayerData.job.onduty then
+            jobamount[ply.PlayerData.job.name] = jobamount[ply.PlayerData.job.name] and jobamount[ply.PlayerData.job.name] + 1 or 1
         end
-        v.amount = amount
+    end
+    for k, v in pairs(Config.Services) do
         for _, rob in pairs(Config.Robberies) do
-            if rob.job == v.job and rob.jobamount > v.amount then
+            if jobamount[rob.job] then
+                if rob.jobamount > jobamount[rob.job] then
+                    rob.status = true
+                else
+                    rob.status = false
+                end
+            else
                 rob.status = true
             end
         end
