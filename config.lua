@@ -5,11 +5,17 @@ Config.FormattedToken = ''   --server bot token
 
 Config.EnablePriorityColor = true  -- Toggle key to enable or disable custom color for priority holder
 Config.PriorityColor = {
-    -- ['835412914332237836'] = {255, 0, 0},  -- [role] = 'color code(rgb)'
+    --[[ {
+        role = '835412914332237836', -- discord role
+        color = {255, 0, 0} -- color code(rgb)
+    } ]]
 }
 Config.EnableIcon = true  -- Toggle key to enable or disable custom icon for discord roles
 Config.Icons = {
-    -- ['835412914332237836'] = '',  -- [role] = 'font awesome icon ex:("fa-solid fa-person-military-rifle")'
+    --[[ {
+        role = '835412914332237836', -- discord role
+        icon = 'fa-solid fa-person-military-rifle' -- font awesome icon ex:("fa-solid fa-person-military-rifle")
+    } ]]
 }
 
 Config.ViewIdDistance = 10.0  -- viewing distance for player overhead id

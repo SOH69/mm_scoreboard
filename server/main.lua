@@ -77,20 +77,20 @@ RegisterNetEvent('mm_scoreboard:server:AddPlayer', function()
     end
 
     if Config.EnablePriorityColor then
-        for k, v in pairs(Config.PriorityColor) do
-            local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, k)
+        for i=1, #Config.PriorityColor do
+            local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, Config.PriorityColor[i].role)
             if hasRole  then
-                color = v
+                color = Config.PriorityColor[i].color
                 break
             end
         end
     end
 
     if Config.EnableIcon then
-        for k, v in pairs(Config.Icons) do
-            local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, k)
+        for i=1, #Config.Icons do
+            local hasRole = exports[GetCurrentResourceName()]:GetDiscordRoles(src, Config.Icons[i].role)
             if hasRole  then
-                icon = v
+                icon = Config.Icons[i].icon
                 break
             end
         end
