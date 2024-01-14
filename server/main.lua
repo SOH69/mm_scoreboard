@@ -119,23 +119,28 @@ end)
 RegisterNetEvent('mm_robbery:server:getservicedata', function()
     local jobamount = {}
     local players = QBCore.Functions.GetQBPlayers()
+
+    for _, service in pairs(Config.Services) do
+        jobamount[service.job] = 0
+    end
+
     for _, ply in pairs(players) do
         if ply and ply.PlayerData.job.onduty then
-            jobamount[ply.PlayerData.job.name] = jobamount[ply.PlayerData.job.name] and jobamount[ply.PlayerData.job.name] + 1 or 1
+            jobamount[ply.PlayerData.job.name] = jobamount[ply.PlayerData.job.name] + 1
         end
     end
-    for k, v in pairs(Config.Services) do
-        for _, rob in pairs(Config.Robberies) do
-            if jobamount[rob.job] then
-                if rob.jobamount > jobamount[rob.job] then
-                    rob.status = true
-                else
-                    rob.status = false
-                end
-            else
-                rob.status = true
-            end
+
+    for _, service in pairs(Config.Services) do
+        service.amount = jobamount[service.job]
+    end
+
+    for _, rob in pairs(Config.Robberies) do
+        if jobamount[rob.job] then
+            rob.status = rob.jobamount > jobamount[rob.job]
+        else
+            rob.status = true
         end
     end
+
     TriggerClientEvent("mm_robbery:client:sync1", source, Config.Services, Config.Robberies)
 end)
